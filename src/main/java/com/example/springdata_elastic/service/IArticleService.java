@@ -1,6 +1,8 @@
 package com.example.springdata_elastic.service;
 
 import com.example.springdata_elastic.model.Article;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -15,4 +17,6 @@ public interface IArticleService {
     List<Article> findAll();
 
     Article update(Article article);
+
+    Page<Article> getPageByTitle(String title, Pageable pg);
 }

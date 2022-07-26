@@ -3,6 +3,8 @@ package com.example.springdata_elastic.controller;
 import com.example.springdata_elastic.model.Article;
 import com.example.springdata_elastic.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,6 +45,11 @@ public class ArticleController {
     public ResponseEntity<Void> deleteVoidById(@PathVariable int id){
         service.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/title/{title}")
+    public ResponseEntity<Page<Article>> getPageByTitle(@PathVariable String title, Pageable pg){
+        return ResponseEntity.ok(service.getPageByTitle(title, pg));
     }
 
 }
