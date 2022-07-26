@@ -13,4 +13,6 @@ public interface IArticleService {
     String deleteById(int id);
 
     List<Article> findAll();
+
+    Article update(Article article);
 }

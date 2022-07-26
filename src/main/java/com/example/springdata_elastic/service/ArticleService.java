@@ -39,4 +39,9 @@ public class ArticleService implements IArticleService{
 
         return list;
     }
+
+    @Override
+    public Article update(Article article) {
+        return repo.save(article);
+    }
 }
